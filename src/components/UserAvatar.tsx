@@ -1,6 +1,6 @@
 'use client'
 
-import { Avatar, AvatarFallback } from '@/components/ui/Avatar'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 import { User } from 'next-auth'
 import Image from 'next/image'

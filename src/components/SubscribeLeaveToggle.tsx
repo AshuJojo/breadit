@@ -1,6 +1,6 @@
 "use client"
 import { FC, startTransition } from 'react'
-import { Button } from './ui/Button';
+import { Button } from './ui/button';
 import { useMutation } from '@tanstack/react-query';
 import { SubscribeToSubredditPayload } from '@/lib/validators/subreddit';
 import axios, { AxiosError } from 'axios';

@@ -12,10 +12,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/Card";
-import { Label } from "./ui/Label";
-import { Input } from "./ui/Input";
-import { Button } from "./ui/Button";
+} from "./ui/card";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { toast } from "@/hooks/use-toast";

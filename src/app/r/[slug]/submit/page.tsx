@@ -1,5 +1,5 @@
 import Editor from '@/components/Editor'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 import { db } from '@/lib/db'
 import { notFound } from 'next/navigation'
 

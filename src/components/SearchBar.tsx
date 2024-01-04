@@ -15,7 +15,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "./ui/Command";
+} from "./ui/command";
 
 interface SearchBarProps {}
 

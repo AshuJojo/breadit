@@ -4,8 +4,8 @@ import { Session } from 'next-auth'
 import { usePathname, useRouter } from 'next/navigation'
 import { FC } from 'react'
 import UserAvatar from './UserAvatar'
-import { Input } from './ui/Input'
-import { Button } from './ui/Button'
+import { Input } from './ui/input'
+import { Button } from './ui/button'
 import { ImageIcon, Link2 } from 'lucide-react'
 
 interface MiniCreatePostProps {
