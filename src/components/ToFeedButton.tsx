@@ -2,7 +2,7 @@
 
 import { ChevronLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/Button";
 
 const ToFeedButton = () => {
   const pathname = usePathname();

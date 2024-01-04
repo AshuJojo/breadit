@@ -1,5 +1,5 @@
 import SubscribeLeaveToggle from "@/components/SubscribeLeaveToggle";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/Button";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { format } from "date-fns";

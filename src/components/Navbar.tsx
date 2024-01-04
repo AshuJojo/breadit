@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icons } from "./Icons";
 import SearchBar from "./SearchBar";
 import UserAccountNav from "./UserAccountNav";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/Button";
 
 const Navbar = async () => {
     const session = await getAuthSession();

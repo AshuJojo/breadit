@@ -13,9 +13,9 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Label } from "./ui/label";
+import { Label } from "./ui/Label";
 import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { Button } from "./ui/Button";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { toast } from "@/hooks/use-toast";

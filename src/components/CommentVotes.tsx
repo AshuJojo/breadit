@@ -10,7 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { ArrowBigDown, ArrowBigUp } from "lucide-react";
 import { FC, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "./ui/Button";
 
 type PartialVote = Pick<CommentVote, "type">;
 
