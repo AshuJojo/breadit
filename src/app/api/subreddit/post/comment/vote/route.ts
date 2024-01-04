@@ -10,6 +10,7 @@ export async function PATCH(req: Request) {
     const { commentId, voteType } = CommentVoteValidator.parse(body);
 
     const session = await getAuthSession();
+    const userId = (session?.user as { id: string }).id;
 
     if (!session?.user) {
       return new Response("Unauthorized", { status: 401 });
@@ -17,7 +18,7 @@ export async function PATCH(req: Request) {
 
     const existingVote = await db.commentVote.findFirst({
       where: {
-        userId: session.user.id,
+        userId: userId,
         commentId,
       },
     });
@@ -42,7 +43,7 @@ export async function PATCH(req: Request) {
           where: {
             userId_commentId: {
               commentId,
-              userId: session.user.id,
+              userId: userId,
             },
           },
         });
@@ -52,7 +53,7 @@ export async function PATCH(req: Request) {
           where: {
             userId_commentId: {
               commentId,
-              userId: session.user.id,
+              userId: userId,
             },
           },
           data: {
@@ -66,7 +67,7 @@ export async function PATCH(req: Request) {
     await db.commentVote.create({
       data: {
         type: voteType,
-        userId: session.user.id,
+        userId: userId,
         commentId,
       },
     });

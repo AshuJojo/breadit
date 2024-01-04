@@ -6,6 +6,7 @@ import { z } from "zod";
 export async function PATCH(req: Request) {
   try {
     const session = await getAuthSession();
+    const userId = (session?.user as { id: string }).id;
 
     if (!session) {
       return new Response("Unauthorized", { status: 401 });
@@ -28,7 +29,7 @@ export async function PATCH(req: Request) {
     // Update username
     await db.user.update({
       where: {
-        id: session.user?.id,
+        id: userId,
       },
       data: {
         username: name,

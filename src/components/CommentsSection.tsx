@@ -9,7 +9,9 @@ interface CommentsSectionProps {
 
 const CommentsSection = async ({ postId }: CommentsSectionProps) => {
   const session = await getAuthSession();
+  const userId = (session?.user as { id: string }).id;
 
+  
   const comments = await db.comment.findMany({
     where: {
       postId,
@@ -47,7 +49,7 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
             );
 
             const topLevelCommentVote = topLevelComment.votes.find(
-              (vote) => vote.userId === session?.user?.id
+              (vote) => vote.userId === userId
             );
 
             return (
@@ -74,7 +76,7 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                     );
 
                     const replyVote = reply.votes.find(
-                      (vote) => vote.userId === session?.user?.id
+                      (vote) => vote.userId === userId
                     );
                     return (
                       <div

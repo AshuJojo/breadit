@@ -23,6 +23,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
   });
 
   const { data: session } = useSession();
+  const userId = (session?.user as { id: string }).id;
 
   const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
     ["infinite-query"],
@@ -63,9 +64,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
           return acc;
         }, 0);
 
-        const currentVote = post.votes.find(
-          (vote) => vote.userId === session?.user?.id
-        );
+        const currentVote = post.votes.find((vote) => vote.userId === userId);
 
         if (index === posts.length - 1) {
           return (
@@ -90,7 +89,6 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
               subredditName={post.subreddit.name}
             />
           );
-          
         }
       })}
     </ul>

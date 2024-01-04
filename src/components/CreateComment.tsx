@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from './ui/Button'
 
 interface CreateCommentProps {
-    postId: String
+    postId: string
     replyToId?: string
 }
 

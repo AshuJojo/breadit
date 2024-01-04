@@ -21,6 +21,7 @@ const Layout = async ({
   };
 }) => {
   const session = await getAuthSession();
+  const userId = (session?.user as { id: string }).id;
 
   const subreddit = await db.subreddit.findFirst({
     where: { name: slug },
@@ -42,7 +43,7 @@ const Layout = async ({
             name: slug,
           },
           user: {
-            id: session.user.id,
+            id: userId,
           },
         },
       });
@@ -91,13 +92,13 @@ const Layout = async ({
                 </dd>
               </div>
 
-              {subreddit.creatorId === session?.user?.id ? (
+              {subreddit.creatorId === userId ? (
                 <div className="flex justify-between gap-x-4 py-3">
                   <p className="text-gray-500">You created this commmunity.</p>
                 </div>
               ) : null}
 
-              {subreddit.creatorId !== session?.user?.id ? (
+              {subreddit.creatorId !== userId ? (
                 <SubscribeLeaveToggle
                   subredditId={subreddit.id}
                   subredditName={subreddit.name}
