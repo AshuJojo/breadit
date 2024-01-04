@@ -17,7 +17,7 @@ const PostVoteServer = async ({
   getData,
 }: PostVoteServerProps) => {
   const session = await getServerSession();
-  const userId = (session?.user as { id: string }).id;
+  const userId = (session?.user as { id: string })?.id;
 
   let _votesAmt: number = 0;
   let _currentVote: VoteType | null | undefined = undefined;

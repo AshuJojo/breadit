@@ -6,7 +6,7 @@ import { z } from "zod";
 export async function PATCH(req: Request) {
   try {
     const session = await getAuthSession();
-    const userId = (session?.user as { id: string }).id;
+    const userId = (session?.user as { id: string })?.id;
 
     if (!session) {
       return new Response("Unauthorized", { status: 401 });
@@ -42,6 +42,8 @@ export async function PATCH(req: Request) {
       return new Response("Invalid request data passed", { status: 422 });
     }
 
-    return new Response("Could not update username, please try again later.", { status: 500 });
+    return new Response("Could not update username, please try again later.", {
+      status: 500,
+    });
   }
 }

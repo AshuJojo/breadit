@@ -8,8 +8,7 @@ import Link from "next/link";
 export default async function Home() {
 
   const session = await getAuthSession();
-
-
+  
   return (
     <>
       <h1 className="font-bold text-3xl md:text-4xl">Your feed</h1>

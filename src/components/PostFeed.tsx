@@ -23,7 +23,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
   });
 
   const { data: session } = useSession();
-  const userId = (session?.user as { id: string }).id;
+  const userId = (session?.user as { id: string })?.id;
 
   const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
     ["infinite-query"],

@@ -9,9 +9,8 @@ interface CommentsSectionProps {
 
 const CommentsSection = async ({ postId }: CommentsSectionProps) => {
   const session = await getAuthSession();
-  const userId = (session?.user as { id: string }).id;
+  const userId = (session?.user as { id: string })?.id;
 
-  
   const comments = await db.comment.findMany({
     where: {
       postId,
@@ -66,14 +65,11 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                 {topLevelComment.replies
                   .sort((a, b) => b.votes.length - a.votes.length)
                   .map((reply) => {
-                    const replyVotesAmt = reply.votes.reduce(
-                      (acc, vote) => {
-                        if (vote.type === "UP") return acc + 1;
-                        if (vote.type === "DOWN") return acc - 1;
-                        return acc;
-                      },
-                      0
-                    );
+                    const replyVotesAmt = reply.votes.reduce((acc, vote) => {
+                      if (vote.type === "UP") return acc + 1;
+                      if (vote.type === "DOWN") return acc - 1;
+                      return acc;
+                    }, 0);
 
                     const replyVote = reply.votes.find(
                       (vote) => vote.userId === userId

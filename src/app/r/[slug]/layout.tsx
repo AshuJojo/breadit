@@ -21,7 +21,7 @@ const Layout = async ({
   };
 }) => {
   const session = await getAuthSession();
-  const userId = (session?.user as { id: string }).id;
+  const userId = (session?.user as { id: string })?.id;
 
   const subreddit = await db.subreddit.findFirst({
     where: { name: slug },

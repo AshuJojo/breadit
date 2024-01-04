@@ -5,7 +5,7 @@ import PostFeed from "./PostFeed";
 
 const CustomFeed = async () => {
   const session = await getAuthSession();
-  const userId = (session?.user as { id: string }).id;
+  const userId = (session?.user as { id: string })?.id;
 
   const followedCommunities = await db.subscription.findMany({
     where: {

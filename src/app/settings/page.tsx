@@ -9,8 +9,8 @@ import { redirect } from "next/navigation";
 
 const page = async ({}) => {
   const session = await getAuthSession();
-  const userId = (session?.user as { id: string }).id;
-  const username = (session?.user as { username: string }).username;
+  const userId = (session?.user as { id: string })?.id;
+  const username = (session?.user as { username: string })?.username;
 
   if (!session?.user) {
     redirect(authOptions.pages?.signIn || "/sign-in");

@@ -6,7 +6,7 @@ import { z } from "zod";
 export async function POST(req: Request) {
   try {
     const session = await getAuthSession();
-    const userId = (session?.user as { id: string }).id;
+    const userId = (session?.user as { id: string })?.id;
 
     if (!session?.user) {
       return new Response("Unauthorized", { status: 401 });
