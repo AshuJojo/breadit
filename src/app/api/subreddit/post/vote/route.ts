@@ -73,10 +73,8 @@ export async function PATCH(req: Request) {
                 return acc
             }, 0)
 
-            console.log("votesAmt: ", votesAmt);
 
             if (votesAmt >= CACHE_AFTER_UPVOTES) {
-                console.log("Redis Upvote")
                 const cachePayload: CachedPost = {
                     authorUsername: post.author.username ?? '',
                     content: JSON.stringify(post.content),

@@ -1,16 +1,16 @@
 "use client"
 
-import { FC, useCallback, useEffect, useRef, useState } from 'react'
-import TextareaAutosize from 'react-textarea-autosize'
-import { useForm } from 'react-hook-form'
-import { PostCreationRequest, PostValidator } from '@/lib/validators/post'
-import { zodResolver } from '@hookform/resolvers/zod'
-import type EditorJS from '@editorjs/editorjs'
-import { uploadFiles } from '@/lib/uploadthing'
 import { toast } from '@/hooks/use-toast'
+import { uploadFiles } from '@/lib/uploadthing'
+import { PostCreationRequest, PostValidator } from '@/lib/validators/post'
+import type EditorJS from '@editorjs/editorjs'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { usePathname, useRouter } from 'next/navigation'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import TextareaAutosize from 'react-textarea-autosize'
 
 interface EditorProps {
     subredditId: string
