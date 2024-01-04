@@ -12,7 +12,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "./ui/Card";
 import { Label } from "./ui/Label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/Button";
